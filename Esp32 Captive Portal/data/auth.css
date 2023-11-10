@@ -1,0 +1,212 @@
+/* ## LAYOUT ## */
+html, body {
+    height: 100%;
+
+    --main-panel-max-width: 450px;
+}
+
+/* Space all template components (header, main content & footer) evenly on the vertical axis. */
+.auth-container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+}
+
+/* Within each component, vertically space and center sub-components evenly */
+.auth-container header, .auth-container main, .auth-container footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+/* Provide some minimum vertical spacing between the main content and the header and footer components. */
+.auth-container main {
+    margin-top: 32px;
+    margin-bottom: 32px;
+}
+
+/*
+ * Little "trick" for preventing header and footer components to "stick" to top and bottom of viewport on tall viewports:
+ * We add a `text` component as the first and last child of the `.auth-container` element, acting as `zero-height` spacer/buffer
+ * elements that cause Flex to add some more (dynamic) padding.
+ */
+@media (min-height: 768px) {
+    .auth-container::before, .auth-container::after {
+        content: ' ';
+    }
+}
+
+/* ## HEADER ## */
+.school-logo {
+    max-height: 250px;
+}
+
+.school-logo-svg {
+    min-width: 50%;
+    min-height: 50px;
+}
+
+.school-organization {
+    font-size: 26px;
+    font-weight: bold;
+}
+
+.school-domain {
+    font-size: 18px;
+}
+
+/* ## MAIN ## */
+.main-panel {
+    width: 100%;
+    max-width: var(--main-panel-max-width);
+}
+
+/* Panels used on pages such as "password reset" deserve to be a bit wider on larger viewports.  */
+@media (min-width: 768px) {
+    .main-panel.panel-wide {
+        width: 700px;
+        max-width: 700px;
+    }
+}
+
+/* ## FOOTER ## */
+.logo-iserv {
+    display: block;
+    margin: 0 auto 15px;
+    width: 135px;
+    position: relative;
+    right: 16px;
+}
+
+/* ## COLORS ## */
+body {
+    background: var(--content-bg-color);
+    color: var(--text-color);
+}
+
+.main-panel {
+    background-color: var(--body-bg-color);
+    color: var(--text-color);
+}
+
+/* ## Loading Indicator ## */
+@keyframes iserv-loading-indicator {
+    0% {
+        transform: translateY(4px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+
+    /* Should be variables. But then we need less :( Maybe this should move to iserv-css */
+    0%, 50% {
+        background-color: #00467D;
+    }
+    75% {
+        background-color: #7FC0FF;
+    }
+    100% {
+        background-color: #FAB900;
+    }
+}
+
+.iserv-loading-indicator {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+.iserv-loading-indicator > div {
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    margin: 0 2px;
+    display: inline-block;
+}
+
+.iserv-loading-indicator .c1 {
+    animation: iserv-loading-indicator 600ms ease 0ms infinite alternate;
+}
+
+.iserv-loading-indicator .c2 {
+    animation: iserv-loading-indicator 600ms ease 200ms infinite alternate;
+}
+
+.iserv-loading-indicator .c3 {
+    animation: iserv-loading-indicator 600ms ease 400ms infinite alternate;
+}
+
+/* ## Locked Handling ## */
+
+/* Remove any spacing from body to allow border-less embedding within an iframe modal. */
+body.body-embedded {
+    height: auto;
+    padding: 0;
+}
+.body-embedded .login-actions {
+    display: flex;
+    justify-content: space-between;
+}
+
+.body-embedded p {
+    margin-top: 0;
+}
+
+/* ## Open in App ## */
+.login-buttons-container {
+    max-width: var(--main-panel-max-width);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.login-buttons-container a {
+    white-space: normal; /* Wrap long text inside buttons - all buttons should be as wide as widest button, but never wider than panel */
+}
+
+.or-container {
+    width: 100%;
+    max-width: var(--main-panel-max-width);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+    margin-top: 8px;
+}
+
+.hr-container {
+    flex: 1;
+    margin: 0 8px;
+}
+
+@media (min-width: 768px) {
+    .or-container {
+        margin-bottom: 16px;
+        margin-top: 16px;
+    }
+
+    .hr-container {
+        margin: 0 16px;
+    }
+}
+
+/* Auth Dialog Panel - Footer */
+.main-panel .panel-footer {
+    padding: 12px;
+    background-color: var(--content-bg-color);
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logged-in-message {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}

